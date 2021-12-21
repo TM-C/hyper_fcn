@@ -5,6 +5,7 @@ import json
 import traceback
 import argparse
 import time
+import multiprocessing
 
 import ray
 from ray import tune
@@ -149,8 +150,8 @@ def main(args=None):
 
         # TODO: Adapt the below parameters according to the machine configuration
         num_samples = args.samples
-        num_cpus = 2
-        num_gpus = 0
+        num_cpus = multiprocessing.cpu_count()
+        num_gpus = len(tf.config.list_physical_devices('GPU'))
 
         logger.info("Initializing scheduler and search algorithms")
         # Use HyperBand scheduler to earlystop unpromising runs
