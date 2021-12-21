@@ -74,7 +74,8 @@ class Trainable:
 
 def create_search_space():
     # Creating hyperopt search space
-    search_space = {"lr": hp.choice("lr", [0.0001, 0.001, 0.01, 0.1]),
+    search_space = {
+                    "lr": hp.choice("lr", [0.0001, 0.001, 0.01, 0.1]),
                     "batch_size": hp.choice("batch_size", [8, 16, 32, 64]), 
                     "use_contrast": hp.choice("use_contrast", ["True", "False"]),
                     "contrast_factor": hp.choice('contrast_factor', [0.1, 0.2, 0.3, 0.4]),
@@ -90,28 +91,31 @@ def create_search_space():
                     "conv_block5_filters":hp.choice("conv_block5_filters", [32, 64, 128, 256, 512]),
                     "fc_layer_type": hp.choice("fc_layer_type", ['dense', 'convolution']),
                     "pool_type": hp.choice("pool_type", ['max', 'average']),
-                    "fc1_units":hp.choice("fc1_units", [32, 64, 128, 256, 512])}
+                    "fc1_units":hp.choice("fc1_units", [32, 64, 128, 256, 512])
+                    }
 
     # Current best setting
     # For hp.uniform specify the exact value
     # For hp.choice specify the index (0 based indexing) in the array
-    intial_best_config = [{"lr": 0,
-                            "batch_size": 0, 
-                            "use_contrast": 1,
-                            "contrast_factor": 0,
-                            "use_rotation": 1,
-                            "rotation_factor": 0,
-                            "use_flip": 1,
-                            "flip_mode": 0,
-                            "dropout_rate": 1,
-                            "conv_block1_filters": 0,
-                            "conv_block2_filters": 1,
-                            "conv_block3_filters": 2,
-                            "conv_block4_filters": 3,
-                            "conv_block5_filters": 4,
-                            "fc_layer_type": 1,
-                            "pool_type": 0,
-                            "fc1_units": 1}]
+    intial_best_config = [{
+                           "lr": 0.001,
+                           "batch_size": 16, 
+                           "use_contrast": "True",
+                           "contrast_factor": 0.2,
+                           "use_rotation": "True",
+                           "rotation_factor": 0.2,
+                           "use_flip": "True",
+                           "flip_mode": "horizontal",
+                           "dropout_rate": 0.2,
+                           "conv_block1_filters": 32,
+                           "conv_block2_filters": 64,
+                           "conv_block3_filters": 128,
+                           "conv_block4_filters": 256,
+                           "conv_block5_filters": 512,
+                           "fc_layer_type": "dense",
+                           "pool_type": "max",
+                           "fc1_units": 64
+                           }]
 
     return search_space, intial_best_config
 

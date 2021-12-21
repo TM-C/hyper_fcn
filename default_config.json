@@ -13,7 +13,7 @@
     "lr": 0.001,
     "pool_type": "max",
     "rotation_factor": 0.2,
-    "use_contrast": "True",
-    "use_flip": "True",
-    "use_rotation": "True"
+    "use_contrast": "False",
+    "use_flip": "False",
+    "use_rotation": "False"
 }
