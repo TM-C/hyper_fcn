@@ -94,23 +94,25 @@ def create_search_space():
     # Current best setting
     # For hp.uniform specify the exact value
     # For hp.choice specify the index (0 based indexing) in the array
-    intial_best_config = [{"lr": 0,
-                            "batch_size": 0, 
-                            "use_contrast": 1,
-                            "contrast_factor": 0,
-                            "use_rotation": 1,
-                            "rotation_factor": 0,
-                            "use_flip": 1,
-                            "flip_mode": 0,
-                            "dropout_rate": 1,
-                            "conv_block1_filters": 0,
-                            "conv_block2_filters": 1,
-                            "conv_block3_filters": 2,
-                            "conv_block4_filters": 3,
-                            "conv_block5_filters": 4,
-                            "fc_layer_type": 1,
-                            "pool_type": 0,
-                            "fc1_units": 1}]
+    intial_best_config = [{
+                           "lr": 0.001,
+                           "batch_size": 16, 
+                           "use_contrast": "True",
+                           "contrast_factor": 0.2,
+                           "use_rotation": "True",
+                           "rotation_factor": 0.2,
+                           "use_flip": "True",
+                           "flip_mode": "horizontal",
+                           "dropout_rate": 0.2,
+                           "conv_block1_filters": 32,
+                           "conv_block2_filters": 64,
+                           "conv_block3_filters": 128,
+                           "conv_block4_filters": 256,
+                           "conv_block5_filters": 512,
+                           "fc_layer_type": "dense",
+                           "pool_type": "max",
+                           "fc1_units": 64
+                           }]
 
     return search_space, intial_best_config
 
