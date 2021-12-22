@@ -150,15 +150,14 @@ def main(args=None):
         args = sys.argv[1:]
     args = parse_args(args)
     
-    dataPath = args.dataPath
-
-
-    BASE_PATH = download_dataset(dataPath)
-    
     # Number of images required in train and val sets
     train_images = args.train_count
     val_images = args.val_count
+    dataPath = args.data_path    
+
     
+    BASE_PATH = download_dataset(dataPath)
+       
     split_dataset(BASE_PATH=BASE_PATH, train_images = train_images, val_images = val_images)
     get_dataset_stats()
 
