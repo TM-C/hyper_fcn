@@ -19,6 +19,7 @@ from generator import Generator
 from callbacks import create_callbacks
 import logger as Logger
 
+import tensorflow as tf
 logger = Logger.get_logger('hyper_fcn', './logs/training')
 
 class Trainable:
