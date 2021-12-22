@@ -3,6 +3,7 @@ from shutil import copy2
 import numpy as np
 import tensorflow as tf
 import zipfile 
+from pathlib import Path
 
 def download_dataset(dataPath):
     
@@ -153,7 +154,9 @@ def main(args=None):
     # Number of images required in train and val sets
     train_images = args.train_count
     val_images = args.val_count
-    dataPath = args.data_path    
+    dataPath = args.data_path
+    
+    print(dataPath)
 
     
     BASE_PATH = download_dataset(dataPath)
