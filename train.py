@@ -77,11 +77,11 @@ def create_search_space():
     search_space = {
                     "lr": hp.choice("lr", [0.0001, 0.001, 0.01, 0.1]),
                     "batch_size": hp.choice("batch_size", [8, 16, 32, 64]), 
-                    "use_contrast": hp.choice("use_contrast", ["True", "False"]),
+                    "use_contrast": hp.choice("use_contrast", ["False"]), # dont need contrast for my usecase
                     "contrast_factor": hp.choice('contrast_factor', [0.1, 0.2, 0.3, 0.4]),
-                    "use_rotation": hp.choice("use_rotation", ["True", "False"]),
+                    "use_rotation": hp.choice("use_rotation", ["False"]), # dont need contrast for my usecase
                     "rotation_factor": hp.choice('rotation_factor', [0.1, 0.2, 0.3, 0.4]),
-                    "use_flip": hp.choice("use_flip", ["True", "False"]),
+                    "use_flip": hp.choice("use_flip", ["False"]), # dont need flip for my usecase
                     "flip_mode": hp.choice('flip_mode', ["horizontal", "vertical"]),
                     "dropout_rate": hp.choice("dropout_rate", [0.1, 0.2, 0.3, 0.4, 0.5]),
                     "conv_block1_filters":hp.choice("conv_block1_filters", [32, 64, 128, 256, 512]),
@@ -100,11 +100,11 @@ def create_search_space():
     intial_best_config = [{
                            "lr": 0.001,
                            "batch_size": 16, 
-                           "use_contrast": "True",
+                           "use_contrast": "False",
                            "contrast_factor": 0.2,
-                           "use_rotation": "True",
+                           "use_rotation": "False",
                            "rotation_factor": 0.2,
-                           "use_flip": "True",
+                           "use_flip": "False",
                            "flip_mode": "horizontal",
                            "dropout_rate": 0.2,
                            "conv_block1_filters": 32,
