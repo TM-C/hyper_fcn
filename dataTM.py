@@ -139,6 +139,7 @@ def parse_args(args):
     parser = argparse.ArgumentParser(description='Optimize RetinaNet anchor configuration')
     parser.add_argument('--train-count', type=int, help='Number of training images to be used for each class.')
     parser.add_argument('--val-count', type=int, help='Number of validation images to be used for each class.')
+    parser.add_argument('--data-path', type=str, help='Path to directory of images. Each class is in a folder.')
 
     return parser.parse_args(args)
 
